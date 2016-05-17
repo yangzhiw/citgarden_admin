@@ -8,6 +8,8 @@
             "entities": {
                 "main": "Entités",
                 "order": "Order",
+                "rePertoryManager": "RePertoryManager",
+                "dish": "Dish",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

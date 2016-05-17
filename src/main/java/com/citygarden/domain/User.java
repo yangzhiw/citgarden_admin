@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -34,7 +35,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @JsonIgnore
     @NotNull
-    @Size(min = 60, max = 60) 
+    @Size(min = 60, max = 60)
     private String password;
 
     @Size(max = 50)
@@ -69,6 +70,19 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @JsonIgnore
     private Set<Authority> authorities = new HashSet<>();
+
+    private String mobile;
+
+    @Field("total_price")
+    private double totalPrice;
+
+    @DBRef(lazy = true)
+    @Field("delivery_address")
+    private DeliveryAddress deliveryAddress;
+
+    @DBRef(lazy = true)
+    @Field("user_level_definition")
+    private UserLevalDefinition userLevalDefinition;
 
     public String getId() {
         return id;

@@ -1,0 +1,48 @@
+<div>
+    <h2>库存管理</h2>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                   <td>NO.</td>
+                   <td>菜品名</td>
+                   <td>现有量</td>
+                   <td>总进量</td>
+                   <td>进货商</td>
+                   <td>进价</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="rePertoryManager in rePertoryManagers track by rePertoryManager.id">
+                    <td><a ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.id}}</a></td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="rePertoryManager.detail({id:rePertoryManager.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="rePertoryManager.edit({id:rePertoryManager.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="rePertoryManager.delete({id:rePertoryManager.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>

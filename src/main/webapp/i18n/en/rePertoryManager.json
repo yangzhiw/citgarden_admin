@@ -1,0 +1,21 @@
+{
+    "citygardenWeb1App": {
+        "rePertoryManager" : {
+            "home": {
+                "title": "RePertoryManagers",
+                "createLabel": "Create a new RePertoryManager",
+                "createOrEditLabel": "Create or edit a RePertoryManager",
+                "search": "Search for RePertoryManager"
+            },
+            "created": "A new RePertoryManager is created with identifier {{ param }}",
+            "updated": "A RePertoryManager is updated with identifier {{ param }}",
+            "deleted": "A RePertoryManager is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete RePertoryManager {{ id }}?"
+            },
+            "detail": {
+                "title": "RePertoryManager"
+            }
+        }
+    }
+}
