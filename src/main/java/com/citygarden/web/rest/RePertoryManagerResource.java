@@ -1,7 +1,7 @@
 package com.citygarden.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
 import com.citygarden.domain.RePertoryManager;
+import com.codahale.metrics.annotation.Timed;
 import com.citygarden.repository.RePertoryManagerRepository;
 import com.citygarden.web.rest.util.HeaderUtil;
 import com.citygarden.web.rest.util.PaginationUtil;
@@ -29,10 +29,10 @@ import java.util.Optional;
 public class RePertoryManagerResource {
 
     private final Logger log = LoggerFactory.getLogger(RePertoryManagerResource.class);
-        
+
     @Inject
     private RePertoryManagerRepository rePertoryManagerRepository;
-    
+
     /**
      * POST  /rePertoryManagers -> Create a new rePertoryManager.
      */
@@ -79,7 +79,7 @@ public class RePertoryManagerResource {
     public ResponseEntity<List<RePertoryManager>> getAllRePertoryManagers(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of RePertoryManagers");
-        Page<RePertoryManager> page = rePertoryManagerRepository.findAll(pageable); 
+        Page<RePertoryManager> page = rePertoryManagerRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/rePertoryManagers");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

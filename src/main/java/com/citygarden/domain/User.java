@@ -180,6 +180,43 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.authorities = authorities;
     }
 
+
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public DeliveryAddress getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    public UserLevalDefinition getUserLevalDefinition() {
+        return userLevalDefinition;
+    }
+
+    public void setUserLevalDefinition(UserLevalDefinition userLevalDefinition) {
+        this.userLevalDefinition = userLevalDefinition;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -206,13 +243,22 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-            "login='" + login + '\'' +
+            "id='" + id + '\'' +
+            ", login='" + login + '\'' +
+            ", password='" + password + '\'' +
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
-            ", activated='" + activated + '\'' +
+            ", activated=" + activated +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +
-            "}";
+            ", resetKey='" + resetKey + '\'' +
+            ", resetDate=" + resetDate +
+            ", authorities=" + authorities +
+            ", mobile='" + mobile + '\'' +
+            ", totalPrice=" + totalPrice +
+            ", deliveryAddress=" + deliveryAddress +
+            ", userLevalDefinition=" + userLevalDefinition +
+            '}';
     }
 }

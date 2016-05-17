@@ -5,15 +5,12 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.io.Serializable;
-import java.util.Objects;
-
 /**
  * A RepertoryManager.
  */
 
-@Document(collection = "repertory_manager")
-public class RepertoryManager implements Serializable {
+@Document(collection = "T_REPERTORY_MANAGER")
+public class RePertoryManager extends AbstractAuditingEntity {
 
     @Id
     private String id;
