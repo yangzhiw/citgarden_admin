@@ -12,6 +12,7 @@
                 "dish": "Dish",
                 "provideMerchant": "ProvideMerchant",
                 "provideDish": "ProvideDish",
+                "announcement": "Announcement",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

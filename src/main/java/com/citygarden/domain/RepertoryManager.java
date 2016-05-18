@@ -72,12 +72,8 @@ public class RePertoryManager extends AbstractAuditingEntity {
         this.provideName = provideName;
     }
 
-    public Integer getNowCount() {
+    public int getNowCount() {
         return nowCount;
-    }
-
-    public void setNowCount(Integer nowCount) {
-        this.nowCount = nowCount;
     }
 
     public void setNowCount(int nowCount) {

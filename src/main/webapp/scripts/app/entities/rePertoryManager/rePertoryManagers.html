@@ -7,15 +7,22 @@
                 <tr>
                    <td>NO.</td>
                    <td>菜品名</td>
+                   <td>菜场名</td>
                    <td>现有量</td>
-                   <td>总进量</td>
-                   <td>进货商</td>
+                   <td>总销售量</td>
                    <td>进价</td>
+                   <td>售价</td>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="rePertoryManager in rePertoryManagers track by rePertoryManager.id">
-                    <td><a ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.id}}</a></td>
+                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{$index + 1}}</td>
+                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.dishName}}</td>
+                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.provideName}}</td>
+                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.nowCount}}</td>
+                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.totalSaleCount}}</td>
+                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.orginalPrice}}</td>
+                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.salePrice}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
@@ -28,7 +35,7 @@
                                     ui-sref="rePertoryManager.edit({id:rePertoryManager.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                                <span class="hidden-xs hidden-sm">增加库存</span>
                             </button>
                             <button type="submit"
                                     ui-sref="rePertoryManager.delete({id:rePertoryManager.id})"

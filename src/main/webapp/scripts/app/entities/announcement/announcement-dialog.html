@@ -4,13 +4,14 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myRePertoryManagerLabel" translate="citygardenWeb1App.rePertoryManager.home.createOrEditLabel">Create or edit a RePertoryManager</h4>
+        <h4 class="modal-title" id="myAnnouncementLabel" translate="citygardenWeb1App.announcement.home.createOrEditLabel">Create or edit a Announcement</h4>
     </div>
     <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
         <div class="form-group">
-            <label for="nowCount">现有量</label>
-            <input type="number" class="form-control" id="nowCount" name="nowCount"
-                    ng-model="rePertoryManager.nowCount" />
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="announcement.id" readonly />
         </div>
 
     </div>
