@@ -1,5 +1,6 @@
 package com.citygarden.web.rest;
 
+import com.citygarden.service.ProvideMerchantService;
 import com.codahale.metrics.annotation.Timed;
 import com.citygarden.domain.ProvideMerchant;
 import com.citygarden.repository.ProvideMerchantRepository;
@@ -26,10 +27,13 @@ import java.util.Optional;
 public class ProvideMerchantResource {
 
     private final Logger log = LoggerFactory.getLogger(ProvideMerchantResource.class);
-        
+
     @Inject
     private ProvideMerchantRepository provideMerchantRepository;
-    
+
+    @Inject
+    private ProvideMerchantService provideMerchantService;
+
     /**
      * POST  /provideMerchants -> Create a new provideMerchant.
      */
@@ -85,9 +89,9 @@ public class ProvideMerchantResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<ProvideMerchant> getProvideMerchant(@PathVariable String id) {
+    public ResponseEntity<ProvideMerchantDTO> getProvideMerchant(@PathVariable String id) throws Exception{
         log.debug("REST request to get ProvideMerchant : {}", id);
-        ProvideMerchant provideMerchant = provideMerchantRepository.findOne(id);
+        ProvideMerchantDTO provideMerchant = provideMerchantService.findOne(id);
         return Optional.ofNullable(provideMerchant)
             .map(result -> new ResponseEntity<>(
                 result,

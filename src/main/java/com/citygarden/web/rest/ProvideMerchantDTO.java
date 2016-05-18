@@ -1,15 +1,11 @@
-package com.citygarden.web.rest.dto;
+package com.citygarden.web.rest;
 
-import com.citygarden.domain.Dish;
-import com.citygarden.domain.ProvideDish;
+import com.citygarden.web.rest.dto.DishDTO;
+import com.citygarden.web.rest.dto.ProvideDishDTO;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by Administrator on 2016/5/18 0018.
- */
-public class provideMerchantDTO {
+public class ProvideMerchantDTO {
     private String id;
 
     private String name;
@@ -22,7 +18,7 @@ public class provideMerchantDTO {
 
     private List<ProvideDishDTO> provideDishs = new ArrayList<>(0);
 
-    private String dishPhoto;
+    private String providePhoto;
 
     public String getId() {
         return id;
@@ -72,12 +68,12 @@ public class provideMerchantDTO {
         this.provideDishs = provideDishs;
     }
 
-    public String getDishPhoto() {
-        return dishPhoto;
+    public String getProvidePhoto() {
+        return providePhoto;
     }
 
-    public void setDishPhoto(String dishPhoto) {
-        this.dishPhoto = dishPhoto;
+    public void setProvidePhoto(String providePhoto) {
+        this.providePhoto = providePhoto;
     }
 
     @Override
@@ -89,7 +85,7 @@ public class provideMerchantDTO {
             ", description='" + description + '\'' +
             ", dishs=" + dishs +
             ", provideDishs=" + provideDishs +
-            ", dishPhoto='" + dishPhoto + '\'' +
+            ", providePhoto='" + providePhoto + '\'' +
             '}';
     }
 }
