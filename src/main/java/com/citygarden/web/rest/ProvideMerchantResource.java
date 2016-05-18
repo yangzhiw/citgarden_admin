@@ -1,13 +1,13 @@
 package com.citygarden.web.rest;
 
 import com.citygarden.service.ProvideMerchantService;
+import com.citygarden.web.rest.dto.ProvideMerchantDTO;
 import com.codahale.metrics.annotation.Timed;
 import com.citygarden.domain.ProvideMerchant;
 import com.citygarden.repository.ProvideMerchantRepository;
 import com.citygarden.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

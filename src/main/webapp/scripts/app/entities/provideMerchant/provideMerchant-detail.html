@@ -30,10 +30,23 @@
             </tbody>
         </table>
     </div>
-    <div>
-
+    <hr/>
+    <div class="panel-heading">
+        <h5>提供菜品列表</h5>
+        <a class="back col-md-offset-9" ui-sref="provideDish.new({id:provideMerchant.id})">增加菜品</a>
     </div>
-
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th class="info col-md-1">No.</th>
+            <th class="info col-md-4">name</th>
+            <th class="info col-md-2">单价</th>
+        </tr>
+        <tr ng-repeat="provideDish in provideMerchant.provideDishs">
+            <td  class="col-md-1" >{{$index + 1}}</td>
+            <td  class="col-md-4">{{provideDish.name}}</td>
+            <td  class="col-md-2">{{provideDish.price}}</td>
+        </tr>
+    </table>
     <button type="submit"
             onclick="window.history.back()"
             class="btn btn-info">

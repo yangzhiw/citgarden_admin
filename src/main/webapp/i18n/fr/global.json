@@ -11,6 +11,7 @@
                 "rePertoryManager": "RePertoryManager",
                 "dish": "Dish",
                 "provideMerchant": "ProvideMerchant",
+                "provideDish": "ProvideDish",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -35,7 +35,9 @@ public class DishPhotoUtilService {
         GridFSDBFile imageForOutput = gfsPhoto.findOne(name);
         System.out.println(imageForOutput);
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        imageForOutput.writeTo(bos);
+        if(imageForOutput != null){
+            imageForOutput.writeTo(bos);
+        }
         return DatatypeConverter.printBase64Binary(bos.toByteArray());
     }
 }

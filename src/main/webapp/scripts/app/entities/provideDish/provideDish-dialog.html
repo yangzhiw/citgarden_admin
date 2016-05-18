@@ -1,0 +1,30 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myProvideDishLabel" translate="citygardenWeb1App.provideDish.home.createOrEditLabel">Create or edit a ProvideDish</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label>名称</label>
+            <input type="text" class="form-control"
+                    ng-model="provideDish.name"/>
+        </div>
+        <div class="form-group">
+            <label>单价</label>
+            <input type="text" class="form-control"
+                    ng-model="provideDish.price"/>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

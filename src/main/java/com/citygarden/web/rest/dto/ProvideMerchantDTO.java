@@ -1,4 +1,4 @@
-package com.citygarden.web.rest;
+package com.citygarden.web.rest.dto;
 
 import com.citygarden.web.rest.dto.DishDTO;
 import com.citygarden.web.rest.dto.ProvideDishDTO;

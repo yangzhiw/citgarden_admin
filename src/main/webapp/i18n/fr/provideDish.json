@@ -1,0 +1,22 @@
+{
+    "citygardenWeb1App": {
+        "provideDish" : {
+            "home": {
+                "title": "ProvideDishs",
+                "createLabel": "Créer un nouveau ProvideDish",
+                "createOrEditLabel": "Créer ou éditer un ProvideDish",
+                "search": "Search for ProvideDish"
+            },
+            "created": "Un nouveau ProvideDish a été créé avec l'identifiant {{ param }}",
+            "updated": "Le ProvideDish avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le ProvideDish avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le ProvideDish {{ id }} ?"
+            },
+            "detail": {
+                "title": "ProvideDish"
+            }
+        }
+    }
+}
+
