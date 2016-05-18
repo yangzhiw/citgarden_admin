@@ -1,35 +1,28 @@
-package com.citygarden.domain;
+package com.citygarden.web.rest.dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+import com.citygarden.domain.Dish;
+import com.citygarden.domain.ProvideDish;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by yzw on 2016/5/17 0017.
+ * Created by Administrator on 2016/5/18 0018.
  */
-
-@Document(collection = "T_PROVIDE_MERCHANT")
-public class ProvideMerchant extends AbstractAuditingEntity {
-    @Id
+public class provideMerchantDTO {
     private String id;
 
     private String name;
 
-    @Field("chinese_name")
     private String chineseName;
 
     private String description;
 
-    @DBRef(lazy = true)
-    private List<Dish> dishs = new ArrayList<>();
+    private List<DishDTO> dishs = new ArrayList<>();
 
-    @DBRef(lazy = true)
-    @Field("provide_dishs")
-    private List<ProvideDish> provideDishs = new ArrayList<>(0);
+    private List<ProvideDishDTO> provideDishs = new ArrayList<>(0);
+
+    private String dishPhoto;
 
     public String getId() {
         return id;
@@ -45,14 +38,6 @@ public class ProvideMerchant extends AbstractAuditingEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<ProvideDish> getProvideDishs() {
-        return provideDishs;
-    }
-
-    public void setProvideDishs(List<ProvideDish> provideDishs) {
-        this.provideDishs = provideDishs;
     }
 
     public String getChineseName() {
@@ -71,23 +56,40 @@ public class ProvideMerchant extends AbstractAuditingEntity {
         this.description = description;
     }
 
-    public List<Dish> getDishs() {
+    public List<DishDTO> getDishs() {
         return dishs;
     }
 
-    public void setDishs(List<Dish> dishs) {
+    public void setDishs(List<DishDTO> dishs) {
         this.dishs = dishs;
+    }
+
+    public List<ProvideDishDTO> getProvideDishs() {
+        return provideDishs;
+    }
+
+    public void setProvideDishs(List<ProvideDishDTO> provideDishs) {
+        this.provideDishs = provideDishs;
+    }
+
+    public String getDishPhoto() {
+        return dishPhoto;
+    }
+
+    public void setDishPhoto(String dishPhoto) {
+        this.dishPhoto = dishPhoto;
     }
 
     @Override
     public String toString() {
-        return "ProvideMerchant{" +
+        return "provideMerchantDTO{" +
             "id='" + id + '\'' +
             ", name='" + name + '\'' +
             ", chineseName='" + chineseName + '\'' +
             ", description='" + description + '\'' +
             ", dishs=" + dishs +
             ", provideDishs=" + provideDishs +
+            ", dishPhoto='" + dishPhoto + '\'' +
             '}';
     }
 }
