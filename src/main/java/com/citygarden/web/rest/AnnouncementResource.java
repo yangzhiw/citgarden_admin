@@ -33,10 +33,7 @@ public class AnnouncementResource {
     private final Logger log = LoggerFactory.getLogger(AnnouncementResource.class);
         
     @Inject
-    private AnnouncementService announcementService;
-    
-    @Inject
-    private AnnouncementMapper announcementMapper;
+    private AnnouncementService announcementService;;
     
     /**
      * POST  /announcements -> Create a new announcement.

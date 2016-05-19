@@ -23,10 +23,7 @@ public class AnnouncementService {
     private final Logger log = LoggerFactory.getLogger(AnnouncementService.class);
     
     @Inject
-    private AnnouncementRepository announcementRepository;
-    
-    @Inject
-    private AnnouncementMapper announcementMapper;
+    private AnnouncementRepository announcementRepository;;
     
     /**
      * Save a announcement.
@@ -34,10 +31,10 @@ public class AnnouncementService {
      */
     public AnnouncementDTO save(AnnouncementDTO announcementDTO) {
         log.debug("Request to save Announcement : {}", announcementDTO);
-        Announcement announcement = announcementMapper.announcementDTOToAnnouncement(announcementDTO);
-        announcement = announcementRepository.save(announcement);
-        AnnouncementDTO result = announcementMapper.announcementToAnnouncementDTO(announcement);
-        return result;
+//        Announcement announcement = announcementMapper.announcementDTOToAnnouncement(announcementDTO);
+//        announcement = announcementRepository.save(announcement);
+//        AnnouncementDTO result = announcementMapper.announcementToAnnouncementDTO(announcement);
+        return null;
     }
 
     /**
@@ -46,10 +43,10 @@ public class AnnouncementService {
      */
     public List<AnnouncementDTO> findAll() {
         log.debug("Request to get all Announcements");
-        List<AnnouncementDTO> result = announcementRepository.findAll().stream()
-            .map(announcementMapper::announcementToAnnouncementDTO)
-            .collect(Collectors.toCollection(LinkedList::new));
-        return result;
+//        List<AnnouncementDTO> result = announcementRepository.findAll().stream()
+//            .map(announcementMapper::announcementToAnnouncementDTO)
+//            .collect(Collectors.toCollection(LinkedList::new));
+        return null;
     }
 
     /**
@@ -59,8 +56,8 @@ public class AnnouncementService {
     public AnnouncementDTO findOne(String id) {
         log.debug("Request to get Announcement : {}", id);
         Announcement announcement = announcementRepository.findOne(id);
-        AnnouncementDTO announcementDTO = announcementMapper.announcementToAnnouncementDTO(announcement);
-        return announcementDTO;
+//        AnnouncementDTO announcementDTO = announcementMapper.announcementToAnnouncementDTO(announcement);
+        return null;
     }
 
     /**
