@@ -49,7 +49,7 @@ angular.module('citygardenWeb1App')
             })
             .state('dish.new', {
                 parent: 'dish',
-                url: '/new',
+                url: 'dish/{id}/new',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
@@ -57,7 +57,7 @@ angular.module('citygardenWeb1App')
                     $uibModal.open({
                         templateUrl: 'scripts/app/entities/dish/dish-dialog.html',
                         controller: 'DishDialogController',
-                        size: 'lg',
+                        size: '',
                         resolve: {
                             entity: function () {
                                 return {
@@ -66,9 +66,9 @@ angular.module('citygardenWeb1App')
                             }
                         }
                     }).result.then(function(result) {
-                        $state.go('dish', null, { reload: true });
+                        $state.go('provideMerchant.detail', {id:$stateParams.id}, { reload: true });
                     }, function() {
-                        $state.go('dish');
+                        $state.go('provideMerchant.detail', {id:$stateParams.id}, { reload: true });
                     })
                 }]
             })
@@ -91,7 +91,7 @@ angular.module('citygardenWeb1App')
                     }).result.then(function(result) {
                         $state.go('dish', null, { reload: true });
                     }, function() {
-                        $state.go('^');
+                        $state.go('provideMerchant.detail', {id:$stateParams.id}, { reload: true });
                     })
                 }]
             })

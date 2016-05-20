@@ -47,8 +47,32 @@
             <td  class="col-md-2">{{provideDish.price}}</td>
         </tr>
     </table>
+
+    <div class="panel-heading">
+        <h5>显示菜品列表</h5>
+        <a class="back col-md-offset-9" ui-sref="dish.new({id:provideMerchant.id})">增加商用菜品</a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th class="info col-md-1">No.</th>
+            <th class="info col-md-1">英文名</th>
+            <th class="info col-md-4">中文名</th>
+            <th class="info col-md-2">原价</th>
+            <th class="info col-md-2">售价</th>
+            <th class="info col-md-2">是否热销</th>
+        </tr>
+        <tr ng-repeat="dish in provideMerchant.dishs">
+            <td  class="col-md-1" >{{$index + 1}}</td>
+            <td  class="col-md-1" >{{dish.name}}</td>
+            <td  class="col-md-4">{{dish.chineseName}}</td>
+            <td  class="col-md-2">{{dish.originalPrice}} ￥</td>
+            <td  class="col-md-2">{{dish.discountPrice}} ￥</td>
+            <td  class="col-md-2" ng-if="dish.isHot == 0">热销</td>
+            <td  class="col-md-2" ng-if="dish.isHot == 1">不热销</td>
+        </tr>
+    </table>
     <button type="submit"
-            onclick="window.history.back()"
+            ui-sref="provideMerchant"
             class="btn btn-info">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
     </button>

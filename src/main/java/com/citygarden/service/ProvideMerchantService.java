@@ -60,6 +60,9 @@ public class ProvideMerchantService {
             y.setChineseName(x.getChineseName());
             y.setOriginalPrice(x.getOriginalPrice());
             y.setDiscountPrice(x.getDiscountPrice());
+            y.setIsHot(x.getIsHot());
+            y.setIsGain(x.getIsGain());
+            y.setIsDiscount(x.getIsDiscount());
             try {
                 y.setDishPhoto(dishPhotoUtilService.getDishPhoto(x.getName()));
             } catch (Exception e) {

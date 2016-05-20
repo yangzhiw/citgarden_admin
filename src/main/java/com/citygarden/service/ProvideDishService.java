@@ -29,7 +29,7 @@ public class ProvideDishService {
         provideDish.setPrice(provideDishDTO.getPrice());
         ProvideDish result = provideDishRepository.save(provideDish);
         ProvideMerchant provideMerchant = provideMerchantRepository.findOne(provideDishDTO.getProvideMerchantId());
-        provideMerchant.getProvideDishs().add(provideDish);
+        provideMerchant.getProvideDishs().add(result);
         provideMerchantRepository.save(provideMerchant);
         return result;
     }

@@ -9,4 +9,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface RePertoryManagerRepository extends MongoRepository<RePertoryManager,String> {
 
+    RePertoryManager findByDishNameAndProvideName(String name, String provideName);
+
+    RePertoryManager findByDishIdAndProvideId(String id, String provideMerchantId);
 }

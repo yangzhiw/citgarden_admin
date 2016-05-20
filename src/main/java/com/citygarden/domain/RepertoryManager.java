@@ -21,6 +21,12 @@ public class RePertoryManager extends AbstractAuditingEntity {
     @Field("provide_name")
     private String provideName;
 
+    @Field("dish_id")
+    private String dishId;
+
+    @Field("provide_id")
+    private String provideId;
+
     @Field("now_count")
     private int nowCount;
 
@@ -112,12 +118,30 @@ public class RePertoryManager extends AbstractAuditingEntity {
         this.orginalPrice = orginalPrice;
     }
 
+    public String getDishId() {
+        return dishId;
+    }
+
+    public void setDishId(String dishId) {
+        this.dishId = dishId;
+    }
+
+    public String getProvideId() {
+        return provideId;
+    }
+
+    public void setProvideId(String provideId) {
+        this.provideId = provideId;
+    }
+
     @Override
     public String toString() {
         return "RePertoryManager{" +
             "id='" + id + '\'' +
             ", dishName='" + dishName + '\'' +
             ", provideName='" + provideName + '\'' +
+            ", dishId='" + dishId + '\'' +
+            ", provideId='" + provideId + '\'' +
             ", nowCount=" + nowCount +
             ", totalSaleCount=" + totalSaleCount +
             ", dish=" + dish +

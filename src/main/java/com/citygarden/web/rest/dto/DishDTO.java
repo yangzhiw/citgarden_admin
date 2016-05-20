@@ -16,6 +16,12 @@ public class DishDTO {
     private String dishPhoto;
     private String chineseName;
 
+    private String provideMerchantId;
+
+    private String provideMerchantName;
+    private String nowCount;
+
+
     public String getId() {
         return id;
     }
@@ -88,6 +94,30 @@ public class DishDTO {
         this.chineseName = chineseName;
     }
 
+    public String getProvideMerchantId() {
+        return provideMerchantId;
+    }
+
+    public void setProvideMerchantId(String provideMerchantId) {
+        this.provideMerchantId = provideMerchantId;
+    }
+
+    public String getProvideMerchantName() {
+        return provideMerchantName;
+    }
+
+    public void setProvideMerchantName(String provideMerchantName) {
+        this.provideMerchantName = provideMerchantName;
+    }
+
+    public String getNowCount() {
+        return nowCount;
+    }
+
+    public void setNowCount(String nowCount) {
+        this.nowCount = nowCount;
+    }
+
     @Override
     public String toString() {
         return "DishDTO{" +
@@ -100,6 +130,9 @@ public class DishDTO {
             ", isHot='" + isHot + '\'' +
             ", dishPhoto='" + dishPhoto + '\'' +
             ", chineseName='" + chineseName + '\'' +
+            ", provideMerchantId='" + provideMerchantId + '\'' +
+            ", provideMerchantName='" + provideMerchantName + '\'' +
+            ", nowCount='" + nowCount + '\'' +
             '}';
     }
 }

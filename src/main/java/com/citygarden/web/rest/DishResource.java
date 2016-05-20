@@ -1,5 +1,7 @@
 package com.citygarden.web.rest;
 
+import com.citygarden.service.DishService;
+import com.citygarden.web.rest.dto.DishDTO;
 import com.codahale.metrics.annotation.Timed;
 import com.citygarden.domain.Dish;
 import com.citygarden.repository.DishRepository;
@@ -26,10 +28,13 @@ import java.util.Optional;
 public class DishResource {
 
     private final Logger log = LoggerFactory.getLogger(DishResource.class);
-        
+
     @Inject
     private DishRepository dishRepository;
-    
+
+    @Inject
+    private DishService dishService;
+
     /**
      * POST  /dishs -> Create a new dish.
      */
@@ -37,12 +42,12 @@ public class DishResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Dish> createDish(@RequestBody Dish dish) throws URISyntaxException {
+    public ResponseEntity<Dish> createDish(@RequestBody DishDTO dish) throws URISyntaxException {
         log.debug("REST request to save Dish : {}", dish);
         if (dish.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("dish", "idexists", "A new dish cannot already have an ID")).body(null);
         }
-        Dish result = dishRepository.save(dish);
+        Dish result = dishService.save(dish);
         return ResponseEntity.created(new URI("/api/dishs/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("dish", result.getId().toString()))
             .body(result);
@@ -57,9 +62,7 @@ public class DishResource {
     @Timed
     public ResponseEntity<Dish> updateDish(@RequestBody Dish dish) throws URISyntaxException {
         log.debug("REST request to update Dish : {}", dish);
-        if (dish.getId() == null) {
-            return createDish(dish);
-        }
+
         Dish result = dishRepository.save(dish);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("dish", dish.getId().toString()))
@@ -73,9 +76,9 @@ public class DishResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Dish> getAllDishs() {
+    public List<DishDTO> getAllDishs() throws Exception{
         log.debug("REST request to get all Dishs");
-        return dishRepository.findAll();
+        return dishService.findAll();
             }
 
     /**
