@@ -88,9 +88,9 @@ public class DishResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Dish> getDish(@PathVariable String id) {
+    public ResponseEntity<DishDTO> getDish(@PathVariable String id) throws Exception{
         log.debug("REST request to get Dish : {}", id);
-        Dish dish = dishRepository.findOne(id);
+        DishDTO dish = dishService.findOne(id);
         return Optional.ofNullable(dish)
             .map(result -> new ResponseEntity<>(
                 result,

@@ -27,6 +27,8 @@ public class ProvideDishService {
         ProvideDish provideDish = new ProvideDish();
         provideDish.setName(provideDishDTO.getName());
         provideDish.setPrice(provideDishDTO.getPrice());
+        provideDish.setProvideId(provideDishDTO.getProvideMerchantId());
+        provideDish.setChineseName(provideDishDTO.getChineseName());
         ProvideDish result = provideDishRepository.save(provideDish);
         ProvideMerchant provideMerchant = provideMerchantRepository.findOne(provideDishDTO.getProvideMerchantId());
         provideMerchant.getProvideDishs().add(result);

@@ -49,7 +49,7 @@ angular.module('citygardenWeb1App')
             })
             .state('dish.new', {
                 parent: 'dish',
-                url: 'dish/{id}/new',
+                url: '/dish/{id}/new',
                 data: {
                     authorities: ['ROLE_USER'],
                 },

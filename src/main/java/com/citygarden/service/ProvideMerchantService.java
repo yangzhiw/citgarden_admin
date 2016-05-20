@@ -39,19 +39,24 @@ public class ProvideMerchantService {
         List<ProvideDish> provideDishs = provideMerchant.getProvideDishs();
         List<ProvideDishDTO> provideDishDTOs = new ArrayList<>();
         List<DishDTO> dishDTOs = new ArrayList<>();
-        provideDishs.forEach(x->{
-            ProvideDishDTO y = new ProvideDishDTO();
-            y.setId(x.getId());
-            y.setName(x.getName());
-            y.setPrice((x.getPrice()));
-            try {
-                y.setProvideDishPhoto(dishPhotoUtilService.getDishPhoto(x.getName()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            provideDishDTOs.add(y);
+        System.err.println(provideMerchant.getProvideDishs());
+        if(provideDishs != null){
+            provideDishs.forEach(x->{
+                ProvideDishDTO y = new ProvideDishDTO();
+                y.setId(x.getId());
+                y.setName(x.getName());
+                y.setChineseName(x.getChineseName());
+                y.setProvideMerchantId(x.getProvideId());
+                y.setPrice((x.getPrice()));
+                try {
+                    y.setProvideDishPhoto(dishPhotoUtilService.getDishPhoto(x.getName()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                provideDishDTOs.add(y);
+            });
+        }
 
-        });
         List<Dish> saleDishs = provideMerchant.getDishs();
         saleDishs.forEach(x->{
             DishDTO y = new DishDTO();

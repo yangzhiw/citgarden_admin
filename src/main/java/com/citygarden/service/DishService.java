@@ -2,10 +2,7 @@ package com.citygarden.service;
 
 import com.citygarden.domain.*;
 import com.citygarden.domain.util.CloudxEnums;
-import com.citygarden.repository.DishRelationProvideRepository;
-import com.citygarden.repository.DishRepository;
-import com.citygarden.repository.ProvideMerchantRepository;
-import com.citygarden.repository.RePertoryManagerRepository;
+import com.citygarden.repository.*;
 import com.citygarden.web.rest.dto.DishDTO;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -40,6 +37,14 @@ public class DishService {
     @Inject
     private DishRelationProvideRepository dishRelationProvideRepository;
 
+    @Inject
+    private ProvideDishRepository provideDishRepository;
+
+    /**
+     * 查询有序菜品
+     * @return
+     * @throws Exception
+     */
     public List<DishDTO> findAll() throws  Exception{
         List<Dish> dishs = dishRepository.findAll();
         List<DishDTO> dishDTOs = new ArrayList<>();
@@ -61,7 +66,8 @@ public class DishService {
                 ? dishRelationProvideRepository.findByDishId(dish.getId()).getProvideMerchantId():null;
 
             if(provideMerchantId !=  null){
-                dishDTO.setProvideMerchantName(provideMerchantRepository.findOne(provideMerchantId).getName());
+                dishDTO.setProvideMerchantName(provideMerchantRepository.findOne(provideMerchantId) != null ?
+                    provideMerchantRepository.findOne(provideMerchantId).getName() : null);
             }
 
             dishDTO.setNowCount(String.valueOf(
@@ -87,12 +93,27 @@ public class DishService {
         dishDTO.setOriginalPrice(dish.getOriginalPrice());
         dishDTO.setChineseName(dish.getChineseName());
 
+        String provideMerchantId = dishRelationProvideRepository.findByDishId(dish.getId())!= null
+            ? dishRelationProvideRepository.findByDishId(dish.getId()).getProvideMerchantId():null;
+
+        if(provideMerchantId !=  null){
+            dishDTO.setProvideMerchantName(provideMerchantRepository.findOne(provideMerchantId).getName());
+        }
+
+        dishDTO.setNowCount(String.valueOf(
+            rePertoryManagerRepository.findByDishIdAndProvideId(dish.getId(), provideMerchantId) != null
+                ? rePertoryManagerRepository.findByDishIdAndProvideId(dish.getId(), provideMerchantId).getNowCount() : null));
         dishDTO.setDishPhoto(dishPhotoUtilService.getDishPhoto(dish.getName()));
 
         return dishDTO;
 
     }
 
+    /**
+     * 保存菜品
+     * @param dishDto
+     * @return
+     */
     public Dish save(DishDTO dishDto) {
         System.err.println(dishDto);
         Dish dish = new Dish();
@@ -113,15 +134,17 @@ public class DishService {
 
         ProvideMerchant provideMerchant = provideMerchantRepository.findOne(dishDto.getProvideMerchantId());
         String provideName = provideMerchant.getName();
-        RePertoryManager rePertoryManager = rePertoryManagerRepository.findByDishNameAndProvideName(dishDto.getName(), provideName);
-        if(rePertoryManager != null){
-            int nowCount = rePertoryManager.getNowCount();
-            if(nowCount > 0){
-                dish.setIsGain(CloudxEnums.GainEnum.ISGAIN);
-            }else{
-                dish.setIsGain(CloudxEnums.GainEnum.UNGAIN);
-            }
-        }
+
+//        RePertoryManager rePertoryManager = rePertoryManagerRepository.findByDishNameAndProvideName(dishDto.getName(), provideName);
+//        if(rePertoryManager != null){
+//            int nowCount = rePertoryManager.getNowCount();
+//            if(nowCount > 0){
+//                dish.setIsGain(CloudxEnums.GainEnum.ISGAIN);
+//            }else{
+//                dish.setIsGain(CloudxEnums.GainEnum.UNGAIN);
+//            }
+//        }
+        dish.setIsGain(CloudxEnums.GainEnum.ISGAIN);
         Dish result = dishRepository.save(dish);
         provideMerchant.getDishs().add(dish);
         provideMerchantRepository.save(provideMerchant);
@@ -130,6 +153,21 @@ public class DishService {
         dishRelationProvide.setDishId(result.getId());
         dishRelationProvide.setProvideMerchantId(dishDto.getProvideMerchantId());
         dishRelationProvideRepository.save(dishRelationProvide);
+
+        RePertoryManager rePertoryManager  = new RePertoryManager();
+        rePertoryManager.setDishId(result.getId());
+        rePertoryManager.setDish(result);
+        rePertoryManager.setDishName(result.getName());
+        rePertoryManager.setNowCount(1000);
+        ProvideDish provideDish = provideDishRepository.findByProvideIdAndName(dishDto.getProvideMerchantId(), result.getName());
+        System.err.println(provideDish);
+        rePertoryManager.setOrginalPrice(String.valueOf(provideDish.getPrice()));
+        rePertoryManager.setSalePrice(dishDto.getDiscountPrice());
+        rePertoryManager.setProvideId(dishDto.getProvideMerchantId());
+        rePertoryManager.setProvideMerchant(provideMerchant);
+        rePertoryManager.setProvideName(provideMerchant.getName());
+        rePertoryManager.setTotalSaleCount(0L);
+        rePertoryManagerRepository.save(rePertoryManager);
 
         return result;
     }

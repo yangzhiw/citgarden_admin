@@ -9,4 +9,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface ProvideDishRepository extends MongoRepository<ProvideDish,String> {
 
+    ProvideDish findByProvideIdAndName(String provideMerchantId, String name);
 }

@@ -16,6 +16,10 @@ public class ProvideDish extends AbstractAuditingEntity {
 
     private double price;
 
+    private String provideId;
+
+    private String ChineseName;
+
     public String getId() {
         return id;
     }
@@ -40,12 +44,30 @@ public class ProvideDish extends AbstractAuditingEntity {
         this.price = price;
     }
 
+    public String getProvideId() {
+        return provideId;
+    }
+
+    public void setProvideId(String provideId) {
+        this.provideId = provideId;
+    }
+
+    public String getChineseName() {
+        return ChineseName;
+    }
+
+    public void setChineseName(String chineseName) {
+        ChineseName = chineseName;
+    }
+
     @Override
     public String toString() {
         return "ProvideDish{" +
             "id='" + id + '\'' +
             ", name='" + name + '\'' +
             ", price=" + price +
+            ", provideId='" + provideId + '\'' +
+            ", ChineseName='" + ChineseName + '\'' +
             '}';
     }
 }

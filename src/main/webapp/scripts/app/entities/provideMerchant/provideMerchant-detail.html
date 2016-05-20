@@ -39,12 +39,23 @@
         <tr>
             <th class="info col-md-1">No.</th>
             <th class="info col-md-4">name</th>
+            <th class="info col-md-4">名称</th>
             <th class="info col-md-2">单价</th>
+            <th class="info col-md-2">操作</th>
         </tr>
         <tr ng-repeat="provideDish in provideMerchant.provideDishs">
             <td  class="col-md-1" >{{$index + 1}}</td>
             <td  class="col-md-4">{{provideDish.name}}</td>
+            <td  class="col-md-4">{{provideDish.chineseName}}</td>
             <td  class="col-md-2">{{provideDish.price}}</td>
+            <td>
+                <button type="submit"
+                          ui-sref="provideDish.edit({pmid:provideMerchant.id,id:provideDish.id})"
+                          class="btn btn-primary btn-sm">
+                   <span class="glyphicon glyphicon-pencil"></span>
+                  <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                </button>
+            </td>
         </tr>
     </table>
 

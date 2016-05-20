@@ -22,11 +22,11 @@ angular.module('citygardenWeb1App').controller('DishDialogController',
         };
 
         $scope.save = function () {
-            $scope.dish.provideMerchantId = $stateParams.id;
             $scope.isSaving = true;
             if ($scope.dish.id != null) {
                 Dish.update($scope.dish, onSaveSuccess, onSaveError);
             } else {
+                $scope.dish.provideMerchantId = $stateParams.id; 
                 Dish.save($scope.dish, onSaveSuccess, onSaveError);
             }
         };

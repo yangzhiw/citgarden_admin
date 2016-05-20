@@ -9,6 +9,7 @@ public class ProvideDishDTO {
     private String id;
     private String name;
     private double price;
+    private String chineseName;
     private String provideDishPhoto;
 
     private String provideMerchantId;
@@ -53,12 +54,21 @@ public class ProvideDishDTO {
         this.provideMerchantId = provideMerchantId;
     }
 
+    public String getChineseName() {
+        return chineseName;
+    }
+
+    public void setChineseName(String chineseName) {
+        this.chineseName = chineseName;
+    }
+
     @Override
     public String toString() {
         return "ProvideDishDTO{" +
             "id='" + id + '\'' +
             ", name='" + name + '\'' +
-            ", price='" + price + '\'' +
+            ", price=" + price +
+            ", chineseName='" + chineseName + '\'' +
             ", provideDishPhoto='" + provideDishPhoto + '\'' +
             ", provideMerchantId='" + provideMerchantId + '\'' +
             '}';

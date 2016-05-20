@@ -5,13 +5,15 @@ import com.citygarden.service.DishPhotoUtilService;
 import com.codahale.metrics.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,4 +42,27 @@ public class DishPhotoResource {
         return map;
     }
 
+
+    /**
+     * post  /dishPhoto/:id -> get the "id" dishPhoto.
+     */
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value="/dishPhoto")
+    public void importDishPhoto(@RequestParam("file") MultipartFile file , @RequestParam String did
+                                  ) throws Exception {
+        log.info("REST request to import  RuleConditionTemplate");
+        String line = null;
+        if (!file.isEmpty()) {
+            InputStream is = null;
+            try {
+                is = file.getInputStream();
+                dishPhotoUtilService.importPhoto(is, did);
+            } catch (IOException e) {
+                log.error("读取文件流出错", e);
+            } finally {
+                if (is != null)
+                    is.close();
+            }
+        }
+    }
 }

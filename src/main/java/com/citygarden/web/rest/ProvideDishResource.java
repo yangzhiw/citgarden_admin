@@ -62,9 +62,9 @@ public class ProvideDishResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<ProvideDish> updateProvideDish(@RequestBody ProvideDish provideDish) throws URISyntaxException {
+    public ResponseEntity<ProvideDish> updateProvideDish(@RequestBody ProvideDishDTO provideDish) throws URISyntaxException {
         log.debug("REST request to update ProvideDish : {}", provideDish);
-        ProvideDish result = provideDishRepository.save(provideDish);
+        ProvideDish result = provideDishService.save(provideDish);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("provideDish", provideDish.getId().toString()))
             .body(result);

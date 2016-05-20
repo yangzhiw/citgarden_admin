@@ -74,7 +74,7 @@ angular.module('citygardenWeb1App')
             })
             .state('provideDish.edit', {
                 parent: 'provideDish',
-                url: '/{id}/edit',
+                url: '/{pmid}/{id}/edit',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
@@ -89,9 +89,9 @@ angular.module('citygardenWeb1App')
                             }]
                         }
                     }).result.then(function(result) {
-                        $state.go('provideDish', null, { reload: true });
+                        $state.go('provideMerchant.detail', {id:$stateParams.pmid}, { reload: true });
                     }, function() {
-                        $state.go('^');
+                        $state.go('provideMerchant.detail', {id:$stateParams.pmid}, { reload: true });
                     })
                 }]
             })
