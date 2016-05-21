@@ -21,6 +21,8 @@ public class DishDTO {
     private String provideMerchantName;
     private String nowCount;
 
+    private String description;
+
 
     public String getId() {
         return id;
@@ -118,6 +120,14 @@ public class DishDTO {
         this.nowCount = nowCount;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         return "DishDTO{" +
@@ -133,6 +143,7 @@ public class DishDTO {
             ", provideMerchantId='" + provideMerchantId + '\'' +
             ", provideMerchantName='" + provideMerchantName + '\'' +
             ", nowCount='" + nowCount + '\'' +
+            ", description='" + description + '\'' +
             '}';
     }
 }

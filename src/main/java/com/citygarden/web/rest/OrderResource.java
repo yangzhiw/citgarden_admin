@@ -1,5 +1,6 @@
 package com.citygarden.web.rest;
 
+import com.citygarden.security.SecurityUtils;
 import com.codahale.metrics.annotation.Timed;
 import com.citygarden.domain.Order;
 import com.citygarden.repository.OrderRepository;
@@ -29,10 +30,10 @@ import java.util.Optional;
 public class OrderResource {
 
     private final Logger log = LoggerFactory.getLogger(OrderResource.class);
-        
+
     @Inject
     private OrderRepository orderRepository;
-    
+
     /**
      * POST  /orders -> Create a new order.
      */
@@ -79,7 +80,7 @@ public class OrderResource {
     public ResponseEntity<List<Order>> getAllOrders(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Orders");
-        Page<Order> page = orderRepository.findAll(pageable); 
+        Page<Order> page = orderRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/orders");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -99,6 +100,18 @@ public class OrderResource {
                 result,
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    /**
+     * GET  /orders -> get all the orders by order Status
+     */
+    @RequestMapping(value = "/orders/status/{status}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Order> getAllOrdersByStatus(@PathVariable String status) {
+        log.debug("REST request to get all Orders");
+        return orderRepository.findByOrderStatus(status);
     }
 
     /**

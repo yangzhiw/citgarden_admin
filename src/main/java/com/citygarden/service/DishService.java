@@ -58,6 +58,7 @@ public class DishService {
             dishDTO.setIsDiscount(dish.getIsDiscount());
             dishDTO.setIsGain(dish.getIsGain());
             dishDTO.setIsHot(dish.getIsHot());
+            dishDTO.setDescription(dish.getDescription());
             dishDTO.setOriginalPrice(dish.getOriginalPrice());
             dishDTO.setChineseName(dish.getChineseName());
             dishDTO.setDishPhoto(dishPhotoUtilService.getDishPhoto(dish.getName()));
@@ -92,6 +93,7 @@ public class DishService {
         dishDTO.setIsHot(dish.getIsHot());
         dishDTO.setOriginalPrice(dish.getOriginalPrice());
         dishDTO.setChineseName(dish.getChineseName());
+        dishDTO.setDescription(dish.getDescription());
 
         String provideMerchantId = dishRelationProvideRepository.findByDishId(dish.getId())!= null
             ? dishRelationProvideRepository.findByDishId(dish.getId()).getProvideMerchantId():null;
@@ -121,6 +123,7 @@ public class DishService {
         dish.setOriginalPrice(dishDto.getOriginalPrice());
         dish.setDiscountPrice(dishDto.getDiscountPrice());
         dish.setChineseName(dishDto.getChineseName());
+        dish.setDescription(dishDto.getDescription());
         if(StringUtils.isBlank(dishDto.getIsHot())){
             dish.setIsHot(CloudxEnums.HotEnum.ISHOT);
         }else{
