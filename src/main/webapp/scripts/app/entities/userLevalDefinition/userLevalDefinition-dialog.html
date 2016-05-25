@@ -4,16 +4,25 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myUserLevalDefinitionLabel" translate="citygardenWeb1App.userLevalDefinition.home.createOrEditLabel">Create or edit a UserLevalDefinition</h4>
+        <h4 class="modal-title" id="myUserLevalDefinitionLabel"
+            translate="citygardenWeb1App.userLevalDefinition.home.createOrEditLabel">Create or edit a UserLevalDefinition</h4>
     </div>
     <div class="modal-body">
-        <jh-alert-error></jh-alert-error>
         <div class="form-group">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="userLevalDefinition.id" readonly />
+            <label>会员名称</label>
+            <input type="text" class="form-control" id="name" name="name"
+                    ng-model="userLevalDefinition.name"/>
         </div>
-
+        <div class="form-group">
+            <label>会员最低积分</label>
+            <input type="number" class="form-control" id="integral" name="integral"
+                    ng-model="userLevalDefinition.integral"/>
+        </div>
+        <div class="form-group">
+            <label>会员折扣</label>
+            <input type="number" class="form-control" id="discount" name="discount"
+                    ng-model="userLevalDefinition.discount"/>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">

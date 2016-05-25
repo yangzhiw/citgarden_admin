@@ -1,39 +1,30 @@
-package com.citygarden.domain;
+package com.citygarden.web.rest.dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.io.Serializable;
+import com.citygarden.domain.Dish;
 
 /**
- * Created by yzw on 2016/5/23 0023.
+ * Created by yzw on 2016/5/25 0025.
  */
-@Document(collection = "T_PROFIT_REPORTS")
-public class ProfitReports implements Serializable {
-    @Id
+public class ProfitReportsDTO {
     private String id;
 
-    @Field("dish_id")
     private String dishId;
 
-    @DBRef(lazy = true)
     private Dish dish;
 
-    @Field("orginal_price")
     private double orginalPrice;
 
-    @Field("sale_price")
     private double salePrice;
 
-    @Field("sale_count")
     private int saleCount;
 
-    @Field("destroy_count")
-    private int destroyCount;
-
     private double saleTotalPrice;
+
+    private double inputTotalPrice;
+
+    private double totalProfit;
+
+    private int destroyCount;
 
     public String getId() {
         return id;
@@ -91,6 +82,22 @@ public class ProfitReports implements Serializable {
         this.saleTotalPrice = saleTotalPrice;
     }
 
+    public double getInputTotalPrice() {
+        return inputTotalPrice;
+    }
+
+    public void setInputTotalPrice(double inputTotalPrice) {
+        this.inputTotalPrice = inputTotalPrice;
+    }
+
+    public double getTotalProfit() {
+        return totalProfit;
+    }
+
+    public void setTotalProfit(double totalProfit) {
+        this.totalProfit = totalProfit;
+    }
+
     public int getDestroyCount() {
         return destroyCount;
     }
@@ -101,7 +108,7 @@ public class ProfitReports implements Serializable {
 
     @Override
     public String toString() {
-        return "ProfitReports{" +
+        return "ProfitReportsDTO{" +
             "id='" + id + '\'' +
             ", dishId='" + dishId + '\'' +
             ", dish=" + dish +
@@ -109,6 +116,9 @@ public class ProfitReports implements Serializable {
             ", salePrice=" + salePrice +
             ", saleCount=" + saleCount +
             ", saleTotalPrice=" + saleTotalPrice +
+            ", inputTotalPrice=" + inputTotalPrice +
+            ", totalProfit=" + totalProfit +
+            ", destroyCount=" + destroyCount +
             '}';
     }
 }

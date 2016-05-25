@@ -57,7 +57,7 @@ angular.module('citygardenWeb1App')
                     $uibModal.open({
                         templateUrl: 'scripts/app/entities/userLevalDefinition/userLevalDefinition-dialog.html',
                         controller: 'UserLevalDefinitionDialogController',
-                        size: 'lg',
+                        size: '',
                         resolve: {
                             entity: function () {
                                 return {
@@ -82,7 +82,7 @@ angular.module('citygardenWeb1App')
                     $uibModal.open({
                         templateUrl: 'scripts/app/entities/userLevalDefinition/userLevalDefinition-dialog.html',
                         controller: 'UserLevalDefinitionDialogController',
-                        size: 'lg',
+                        size: '',
                         resolve: {
                             entity: ['UserLevalDefinition', function(UserLevalDefinition) {
                                 return UserLevalDefinition.get({id : $stateParams.id});

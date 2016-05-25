@@ -1,5 +1,6 @@
 package com.citygarden.web.rest;
 
+import com.citygarden.web.rest.dto.ProfitReportsDTO;
 import com.codahale.metrics.annotation.Timed;
 import com.citygarden.domain.ProfitReports;
 import com.citygarden.repository.ProfitReportsRepository;
@@ -10,11 +11,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.method.P;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,10 +29,10 @@ import java.util.Optional;
 public class ProfitReportsResource {
 
     private final Logger log = LoggerFactory.getLogger(ProfitReportsResource.class);
-        
+
     @Inject
     private ProfitReportsRepository profitReportsRepository;
-    
+
     /**
      * POST  /profitReportss -> Create a new profitReports.
      */
@@ -73,10 +76,27 @@ public class ProfitReportsResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<ProfitReports> getAllProfitReportss() {
+    public List<ProfitReportsDTO> getAllProfitReportss() {
         log.debug("REST request to get all ProfitReportss");
-        return profitReportsRepository.findAll();
-            }
+        List<ProfitReports> profitReportses =  profitReportsRepository.findAll();
+        List<ProfitReportsDTO> profitReportsDTOs = new ArrayList<>(0);
+        profitReportses.forEach(x->{
+            ProfitReportsDTO y = new ProfitReportsDTO();
+            y.setId(x.getId());
+            y.setDish(x.getDish());
+            y.setDishId(x.getDishId());
+            y.setSaleCount(x.getSaleCount());
+            y.setOrginalPrice(x.getOrginalPrice());
+            y.setSalePrice(x.getSalePrice());;
+            y.setSaleTotalPrice(x.getSaleTotalPrice());
+
+            y.setInputTotalPrice(x.getOrginalPrice() * x.getSaleCount());
+            y.setTotalProfit((x.getSaleTotalPrice()) - (x.getOrginalPrice() * x.getSaleCount()));
+
+            profitReportsDTOs.add(y);
+        });
+        return  profitReportsDTOs;
+      }
 
     /**
      * GET  /profitReportss/:id -> get the "id" profitReports.

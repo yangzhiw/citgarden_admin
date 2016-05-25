@@ -1,13 +1,12 @@
 <div>
-    <h2 translate="citygardenWeb1App.userLevalDefinition.home.title">UserLevalDefinitions</h2>
-    <jh-alert></jh-alert>
+    <h2 class="col-lg-offset-5">用户等级定义</h2>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="userLevalDefinition.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
-                        translate="citygardenWeb1App.userLevalDefinition.home.createLabel">Create new UserLevalDefinition
+                    <span
+                        >创建等级定义
                     </span>
                 </button>
             </div>
@@ -18,21 +17,26 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th></th>
+                    <th>No.</th>
+                    <th>会员名称</th>
+                    <th>会员最低积分</th>
+                    <th>会员折扣</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="userLevalDefinition in userLevalDefinitions track by userLevalDefinition.id">
-                    <td><a ui-sref="userLevalDefinition.detail({id:userLevalDefinition.id})">{{userLevalDefinition.id}}</a></td>
+                    <td ui-sref="userLevalDefinition.detail({id:userLevalDefinition.id})">{{$index + 1}}</td>
+                    <td ui-sref="userLevalDefinition.detail({id:userLevalDefinition.id})">{{userLevalDefinition.name}}</td>
+                    <td ui-sref="userLevalDefinition.detail({id:userLevalDefinition.id})">{{userLevalDefinition.integral}}</td>
+                    <td ui-sref="userLevalDefinition.detail({id:userLevalDefinition.id})">{{userLevalDefinition.discount}} 折</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="userLevalDefinition.detail({id:userLevalDefinition.id})"
-                                    class="btn btn-info btn-sm"> 
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
-                            </button>
+                            <!--<button type="submit"-->
+                                    <!--ui-sref="userLevalDefinition.detail({id:userLevalDefinition.id})"-->
+                                    <!--class="btn btn-info btn-sm">-->
+                                <!--<span class="glyphicon glyphicon-eye-open"></span>-->
+                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.view"></span>-->
+                            <!--</button>-->
                             <button type="submit"
                                     ui-sref="userLevalDefinition.edit({id:userLevalDefinition.id})"
                                     class="btn btn-primary btn-sm">
@@ -41,7 +45,7 @@
                             </button>
                             <button type="submit"
                                     ui-sref="userLevalDefinition.delete({id:userLevalDefinition.id})"
-                                    class="btn btn-danger btn-sm">                                    
+                                    class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>

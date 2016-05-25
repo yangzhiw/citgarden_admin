@@ -30,6 +30,9 @@ public class RePertoryManager extends AbstractAuditingEntity {
     @Field("now_count")
     private int nowCount;
 
+    @Field("destroy_count")
+    private int destroyCount;
+
     @Field("total_sale_count")
     private Long totalSaleCount;
 
@@ -132,6 +135,14 @@ public class RePertoryManager extends AbstractAuditingEntity {
 
     public void setProvideId(String provideId) {
         this.provideId = provideId;
+    }
+
+    public int getDestroyCount() {
+        return destroyCount;
+    }
+
+    public void setDestroyCount(int destroyCount) {
+        this.destroyCount = destroyCount;
     }
 
     @Override

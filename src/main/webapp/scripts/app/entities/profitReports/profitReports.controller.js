@@ -7,6 +7,7 @@ angular.module('citygardenWeb1App')
         $scope.loadAll = function() {
             ProfitReports.query(function(result) {
                $scope.profitReportss = result;
+                console.log(result);
             });
         };
         $scope.loadAll();

@@ -1,50 +1,50 @@
 <div>
-    <h2 translate="citygardenWeb1App.profitReports.home.title">ProfitReportss</h2>
-    <jh-alert></jh-alert>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="profitReports.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span 
-                        translate="citygardenWeb1App.profitReports.home.createLabel">Create new ProfitReports
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
+    <h2>利润报表</h2>
     <br/>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th></th>
+                    <th>NO.</th>
+                    <th>菜品名称</th>
+                    <th>进价</th>
+                    <th>售价</th>
+                    <th>销售数量</th>
+                    <th>销售合计</th>
+                    <th>进价合计</th>
+                    <th>利润</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="profitReports in profitReportss track by profitReports.id">
-                    <td><a ui-sref="profitReports.detail({id:profitReports.id})">{{profitReports.id}}</a></td>
+                    <td a ui-sref="profitReports.detail({id:profitReports.id})">{{$index + 1}}</td>
+                    <td a ui-sref="profitReports.detail({id:profitReports.id})">{{profitReports.dish.chineseName}}</td>
+                    <td a ui-sref="profitReports.detail({id:profitReports.id})">{{profitReports.orginalPrice}} ￥</td>
+                    <td a ui-sref="profitReports.detail({id:profitReports.id})">{{profitReports.salePrice}} ￥</td>
+                    <td a ui-sref="profitReports.detail({id:profitReports.id})">{{profitReports.saleCount}}</td>
+                    <td a ui-sref="profitReports.detail({id:profitReports.id})">{{profitReports.saleTotalPrice}} ￥</td>
+                    <td a ui-sref="profitReports.detail({id:profitReports.id})">{{profitReports.inputTotalPrice}} ￥</td>
+                    <td a ui-sref="profitReports.detail({id:profitReports.id})">{{profitReports.totalProfit}} ￥</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="profitReports.detail({id:profitReports.id})"
-                                    class="btn btn-info btn-sm"> 
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="profitReports.edit({id:profitReports.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="profitReports.delete({id:profitReports.id})"
-                                    class="btn btn-danger btn-sm">                                    
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
-                            </button>
+                            <!--<button type="submit"-->
+                                    <!--ui-sref="profitReports.detail({id:profitReports.id})"-->
+                                    <!--class="btn btn-info btn-sm">-->
+                                <!--<span class="glyphicon glyphicon-eye-open"></span>-->
+                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.view"></span>-->
+                            <!--</button>-->
+                            <!--<button type="submit"-->
+                                    <!--ui-sref="profitReports.edit({id:profitReports.id})"-->
+                                    <!--class="btn btn-primary btn-sm">-->
+                                <!--<span class="glyphicon glyphicon-pencil"></span>-->
+                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>-->
+                            <!--</button>-->
+                            <!--<button type="submit"-->
+                                    <!--ui-sref="profitReports.delete({id:profitReports.id})"-->
+                                    <!--class="btn btn-danger btn-sm">-->
+                                <!--<span class="glyphicon glyphicon-remove-circle"></span>-->
+                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>-->
+                            <!--</button>-->
                         </div>
                     </td>
                 </tr>

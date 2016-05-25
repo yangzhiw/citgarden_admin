@@ -13,16 +13,13 @@ public class UserLevalDefinition extends AbstractAuditingEntity{
     @Id
     private String id;
 
-    @Field("gold_integral")
-    private int goldIntegral;
+    private String name;
+    private int integral;
+    private String discount;
 
-    @Field("platina_integral")
-    private int platinaIntegral;
-
-    @Field("diamond_integral")
-    private int diamondIntegral;
 
     public String getId() {
+
         return id;
     }
 
@@ -30,37 +27,37 @@ public class UserLevalDefinition extends AbstractAuditingEntity{
         this.id = id;
     }
 
-    public int getGoldIntegral() {
-        return goldIntegral;
+    public String getName() {
+        return name;
     }
 
-    public void setGoldIntegral(int goldIntegral) {
-        this.goldIntegral = goldIntegral;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getPlatinaIntegral() {
-        return platinaIntegral;
+    public int getIntegral() {
+        return integral;
     }
 
-    public void setPlatinaIntegral(int platinaIntegral) {
-        this.platinaIntegral = platinaIntegral;
+    public void setIntegral(int integral) {
+        this.integral = integral;
     }
 
-    public int getDiamondIntegral() {
-        return diamondIntegral;
+    public String getDiscount() {
+        return discount;
     }
 
-    public void setDiamondIntegral(int diamondIntegral) {
-        this.diamondIntegral = diamondIntegral;
+    public void setDiscount(String discount) {
+        this.discount = discount;
     }
 
     @Override
     public String toString() {
         return "UserLevalDefinition{" +
             "id='" + id + '\'' +
-            ", goldIntegral=" + goldIntegral +
-            ", platinaIntegral=" + platinaIntegral +
-            ", diamondIntegral=" + diamondIntegral +
+            ", name='" + name + '\'' +
+            ", integral=" + integral +
+            ", discount='" + discount + '\'' +
             '}';
     }
 }
