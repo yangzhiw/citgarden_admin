@@ -1,21 +1,28 @@
 
 <div>
-    <h2><span translate="citygardenWeb1App.order.detail.title">Order</span> {{order.id}}</h2>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th translate="entity.detail.field">Field</th>
-                <th translate="entity.detail.value">Value</th>
-            </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+    <h2>订单详情</h2>
+    总计：{{order.totalPrice}}￥
+    <div class="panel-heading">
+        <h5>订单项</h5>
     </div>
-
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th class="info col-md-1">No.</th>
+            <th class="info col-md-4">数量</th>
+            <th class="info col-md-4">名称</th>
+            <th class="info col-md-2">售价</th>
+            <th class="info col-md-2">小计</th>
+        </tr>
+        <tr ng-repeat="list in order.orderItemList">
+            <td  class="col-md-1" >{{$index + 1}}</td>
+            <td  class="col-md-4">{{list.count}}</td>
+            <td  class="col-md-4">{{list.dish.chineseName}}</td>
+            <td  class="col-md-2">{{list.dish.discountPrice}}</td>
+            <td  class="col-md-2">{{list.subtotal}} ￥</td>
+        </tr>
+    </table>
     <button type="submit"
-            onclick="window.history.back()"
+            ui-sref="order"
             class="btn btn-info">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
     </button>

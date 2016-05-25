@@ -1,0 +1,22 @@
+{
+    "citygardenWeb1App": {
+        "userLevalDefinition" : {
+            "home": {
+                "title": "UserLevalDefinitions",
+                "createLabel": "Créer un nouveau UserLevalDefinition",
+                "createOrEditLabel": "Créer ou éditer un UserLevalDefinition",
+                "search": "Search for UserLevalDefinition"
+            },
+            "created": "Un nouveau UserLevalDefinition a été créé avec l'identifiant {{ param }}",
+            "updated": "Le UserLevalDefinition avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le UserLevalDefinition avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le UserLevalDefinition {{ id }} ?"
+            },
+            "detail": {
+                "title": "UserLevalDefinition"
+            }
+        }
+    }
+}
+

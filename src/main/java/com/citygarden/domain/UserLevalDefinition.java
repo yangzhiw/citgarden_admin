@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * Created by yzw on 2016/5/16 0016.
  */
 @Document(collection = "T_USER_LEVEL_DEFINITION")
-public class UserLevalDefinition {
+public class UserLevalDefinition extends AbstractAuditingEntity{
 
     @Id
     private String id;

@@ -3,6 +3,7 @@
 angular.module('citygardenWeb1App')
     .controller('OrderDetailController', function ($scope, $rootScope, $stateParams, entity, Order) {
         $scope.order = entity;
+        console.log(entity);
         $scope.load = function (id) {
             Order.get({id: id}, function(result) {
                 $scope.order = result;

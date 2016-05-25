@@ -13,6 +13,8 @@
                 "provideMerchant": "ProvideMerchant",
                 "provideDish": "ProvideDish",
                 "announcement": "Announcement",
+                "profitReports": "ProfitReports",
+                "userLevalDefinition": "UserLevalDefinition",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,22 @@
+{
+    "citygardenWeb1App": {
+        "profitReports" : {
+            "home": {
+                "title": "ProfitReportss",
+                "createLabel": "Créer un nouveau ProfitReports",
+                "createOrEditLabel": "Créer ou éditer un ProfitReports",
+                "search": "Search for ProfitReports"
+            },
+            "created": "Un nouveau ProfitReports a été créé avec l'identifiant {{ param }}",
+            "updated": "Le ProfitReports avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le ProfitReports avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le ProfitReports {{ id }} ?"
+            },
+            "detail": {
+                "title": "ProfitReports"
+            }
+        }
+    }
+}
+

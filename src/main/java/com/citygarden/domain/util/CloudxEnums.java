@@ -18,6 +18,15 @@ public class CloudxEnums {
         }
     }
 
+    public final class DeliveryWayEnum {
+
+        //配送
+        public static final String DELIVERY = "1";
+        //亲取
+        public static final String OWN = "0";
+
+    }
+
     public final class OrderStatusEnum {
 
         //未付款
