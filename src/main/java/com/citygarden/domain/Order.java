@@ -27,7 +27,6 @@ public class Order implements Serializable {
     private double totalPrice;
     @Field("delivery_way")
     private String deliveryWay;
-    private DateTime date = new DateTime();
     @Field("order_status")
     private String orderStatus;
     private String deliveryAddress;
@@ -66,14 +65,6 @@ public class Order implements Serializable {
 
     public void setDeliveryWay(String deliveryWay) {
         this.deliveryWay = deliveryWay;
-    }
-
-    public DateTime getDate() {
-        return date;
-    }
-
-    public void setDate(DateTime date) {
-        this.date = date;
     }
 
     public String getOrderStatus() {
@@ -137,7 +128,6 @@ public class Order implements Serializable {
             "id='" + id + '\'' +
             ", totalPrice=" + totalPrice +
             ", deliveryWay='" + deliveryWay + '\'' +
-            ", date=" + date +
             ", orderStatus='" + orderStatus + '\'' +
             ", deliveryAddress='" + deliveryAddress + '\'' +
             ", username='" + username + '\'' +

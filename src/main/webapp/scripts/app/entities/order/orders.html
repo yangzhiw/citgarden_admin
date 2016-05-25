@@ -28,12 +28,11 @@
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
-                            <!--<button type="submit"-->
-                                    <!--ui-sref="order.edit({id:order.id})"-->
-                                    <!--class="btn btn-primary btn-sm">-->
-                                <!--<span class="glyphicon glyphicon-pencil"></span>-->
-                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>-->
-                            <!--</button>-->
+                            <button type="submit" ng-if="order.orderStatus == 2"
+                                    ui-sref="order.edit({id:order.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="hidden-xs hidden-sm">发货</span>
+                            </button>
                         </div>
                     </td>
                 </tr>

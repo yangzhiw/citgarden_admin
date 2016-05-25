@@ -57,7 +57,7 @@ angular.module('citygardenWeb1App')
                     $uibModal.open({
                         templateUrl: 'scripts/app/entities/order/order-dialog.html',
                         controller: 'OrderDialogController',
-                        size: 'lg',
+                        size: '',
                         resolve: {
                             entity: function () {
                                 return {
@@ -82,7 +82,7 @@ angular.module('citygardenWeb1App')
                     $uibModal.open({
                         templateUrl: 'scripts/app/entities/order/order-dialog.html',
                         controller: 'OrderDialogController',
-                        size: 'lg',
+                        size: 'sm',
                         resolve: {
                             entity: ['Order', function(Order) {
                                 return Order.get({id : $stateParams.id});
