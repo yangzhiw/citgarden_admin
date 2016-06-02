@@ -17,8 +17,8 @@
             <tbody>
                 <tr ng-repeat="rePertoryManager in rePertoryManagers track by rePertoryManager.id">
                     <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{$index + 1}}</td>
-                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.dishName}}</td>
-                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.provideName}}</td>
+                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.dish.chineseName}}</td>
+                    <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.provideMerchant.chineseName}}</td>
                     <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.nowCount}}</td>
                     <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.totalSaleCount}}</td>
                     <td ui-sref="rePertoryManager.detail({id:rePertoryManager.id})">{{rePertoryManager.orginalPrice}}</td>

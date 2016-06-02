@@ -128,7 +128,7 @@ public class Order implements Serializable {
             "id='" + id + '\'' +
             ", totalPrice=" + totalPrice +
             ", deliveryWay='" + deliveryWay + '\'' +
-            ", orderStatus='" + orderStatus + '\'' +
+//            ", orderStatus='" + orderStatus + '\'' +
             ", deliveryAddress='" + deliveryAddress + '\'' +
             ", username='" + username + '\'' +
             ", orderItemList=" + orderItemList +

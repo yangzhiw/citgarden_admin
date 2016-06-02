@@ -136,17 +136,7 @@ public class DishService {
         }
 
         ProvideMerchant provideMerchant = provideMerchantRepository.findOne(dishDto.getProvideMerchantId());
-        String provideName = provideMerchant.getName();
 
-//        RePertoryManager rePertoryManager = rePertoryManagerRepository.findByDishNameAndProvideName(dishDto.getName(), provideName);
-//        if(rePertoryManager != null){
-//            int nowCount = rePertoryManager.getNowCount();
-//            if(nowCount > 0){
-//                dish.setIsGain(CloudxEnums.GainEnum.ISGAIN);
-//            }else{
-//                dish.setIsGain(CloudxEnums.GainEnum.UNGAIN);
-//            }
-//        }
         dish.setIsGain(CloudxEnums.GainEnum.ISGAIN);
         Dish result = dishRepository.save(dish);
         provideMerchant.getDishs().add(dish);

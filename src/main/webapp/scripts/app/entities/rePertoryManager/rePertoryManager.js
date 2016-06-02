@@ -82,7 +82,7 @@ angular.module('citygardenWeb1App')
                     $uibModal.open({
                         templateUrl: 'scripts/app/entities/rePertoryManager/rePertoryManager-dialog.html',
                         controller: 'RePertoryManagerDialogController',
-                        size: 'lg',
+                        size: '',
                         resolve: {
                             entity: ['RePertoryManager', function(RePertoryManager) {
                                 return RePertoryManager.get({id : $stateParams.id});
