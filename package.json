@@ -1,7 +1,7 @@
 {
   "name": "citygarden-web1",
   "version": "0.0.0",
-  "description": "Description for citygarden_web1",
+  "description": "都市菜园的管理端项目",
   "private": true,
   "cacheDirectories": [
     "node_modules",
